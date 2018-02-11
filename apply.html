@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创业场</title>
+    <meta charset = "utf-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="js/plugins/layer/skin/layer.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/plugins/Font-Awesome-master/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="container-fluid">
+
+    <div class="page-header-nav-tbt well">
+        <div class="pg-hd-tbt-cont">
+            <div class="pg-hd-tbt-cont-text-lt">您好欢迎来到创业场!</div>
+            <div class="pg-hd-tbt-cont-text-rt">
+                <table style="background-color: transparent">
+                    <tbody style="background-color: transparent">
+                    <tr>
+<<<<<<< HEAD
+                        <td style="border-color: transparent;background-color: #f5f5f5;">
+                            <a  class="viewMore"  href="http://www.chuangyechang.com/" style="text-decoration: none;">&nbsp;&nbsp;返回首页&nbsp;&nbsp;</a>
+                        </td>
+                        <td style="border-color: transparent;background-color: #f5f5f5;"><span  class="viewMore"  onclick="logout()">&nbsp;&nbsp;退出 &nbsp;&nbsp;</span> </td>
+=======
+                        <td style="border-color: transparent">
+                            <a  class="viewMore"  href="http://www.chuangyechang.com/" style="text-decoration: none;">&nbsp;&nbsp;返回首页&nbsp;&nbsp;</a>
+                        </td>
+                        <td style="border-color: transparent"><span  class="viewMore"  onclick="logout()">&nbsp;&nbsp;退出 &nbsp;&nbsp;</span> </td>
+>>>>>>> origin/master
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="page-header-nav-main well ">
+        <div class="page-header-nav-main-cont">
+
+            <div class="pg-hd-main-logo-cont">
+
+            </div>
+            <div class="pg-hd-main-nav-list-cont">
+                
+            </div>
+
+        </div>
+    </div>
+    <div class="page-cont-body">
+        <div class="pg-cont-reg-form-cont mAccount" >
+            <div class="pg-cont-myAcc-lt-vert-nav">
+                <div class="pg-cont-myAcc-lt-vert-nav-item" id="acc-myHome">
+                    <div>
+                        <h3 class="fa fa-contao"></h3>&nbsp;&nbsp;
+                        我的项目
+                    </div>
+                </div>
+
+                <div class="pg-cont-myAcc-lt-vert-nav-item active acc-apply-link" id="acc-apply">
+                    <div>
+                        <h3 class="fa fa-contao"></h3>&nbsp;&nbsp;
+                        申请项目
+                    </div>
+                </div>
+
+                <div class="pg-cont-myAcc-lt-vert-nav-item" id="acc-logout" onclick="logout()">
+                    <div>
+                        <h3 class="fa fa-contao"></h3>&nbsp;&nbsp;
+                        推出用户
+                    </div>
+                </div>
+            </div>
+            <div class="pg-cont-myAcc-rt-vert-nav">
+                <form action="" id="apply-form" >
+                    <div class="application-in-process" id="application-in-process">
+                        <span style="color: red; font-size: 15px; margin-left: -30%">你有待审批的记录，你只能重新提交</span>
+                    </div>
+
+                    <div class="pg-cont-myAcc-apply-cont" id="application-form">
+                        <div class= "pg-cont-myAcc-apply-cont-bdy">
+                            <div class="pg-cont-myAcc-apply-hd">
+                                <input type="text" id="parent-id"  name="parentId" value="0" hidden>
+                                <div class="pg-cont-myAcc-apply-hd-nav">
+
+                                    <div id="choice-one" class="pg-cont-myAcc-apply-hd-item one" onclick="changeMeOne()">
+                                        <div>孵化器申请</div>
+                                        <input type="checkbox" id="incubator" value="0" name="applyType" checked class="apply-type" hidden>
+                                    </div>
+
+                                    <div id="choice-two" class="pg-cont-myAcc-apply-hd-item two" onclick="changeMeTwo()">
+                                        <div>加速器申请</div>
+                                        <input type="checkbox" id="accelerator " value="1" name="applyType" class="apply-type" hidden>
+                                    </div>
+                                </div>
+                                <div class="pg-cont-myAcc-apply-hd-txt one" id="text-one">
+                                    <p>关于孵化器：</p>
+                                    <p>产品处于概念期或Demo期，团队人数在10人左右，办公面积需求在80平米以下。
+                                        <a class="viewMore" href="#">了解多</a>
+                                    </p>
+                                </div>
+                                <div class="pg-cont-myAcc-apply-hd-txt two" id="text-two">
+                                    <p>关于加速器：</p>
+                                    <p>已注册公司，产品已上市，团队人数在15人以上，办公面积需求在100平米以上。
+                                        <a class="viewMore" href="#">了解多</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="pg-cont-reg-form-cont mApply">
+                                <div class="pg-cont-reg-form-item" >
+                                    <div style="width:14%;text-align: right" >
+                                        <span style="color: Red">*</span>
+                                        申请企业(团队)名称:
+                                    </div>
+                                    <div class="pg-cont-reg-form-item-input" >
+                                        <input id="team-name"  class="memIn Validform_error" name="team-name" type="text" required>
+                                    </div>
+                                    <div style="width:16%; ">
+                                        <div class="Validform_checktip Validform_wrong">填团队/公司名称</div>
+                                    </div>
+                                </div>
+                                <div class="pg-cont-reg-form-item" >
+                                    <div style="width:14%;text-align: right" >
+                                        <span style="color: Red">*</span>
+                                        法人代表(负责人)姓名:
+                                    </div>
+                                    <div class="pg-cont-reg-form-item-input" >
+                                        <input id="team-representative" class="memIn Validform_error" type="text" name="team-representative" required>
+                                    </div>
+                                    <div style="width:16%; ">
+                                        <div class="Validform_checktip Validform_wrong">法人代表(负责人)姓名</div>
+                                    </div>
+                                </div>
+                                <div class="pg-cont-reg-form-item" >
+                                    <div style="width:14%;text-align: right" >
+                                        <span style="color: Red">*</span>
+                                        请选择项目分类:
+                                    </div>
+                                    <div class="pg-cont-reg-form-item-input-slct" id="categories">
+                                        <select name="categories" required id="categories-list">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="pg-cont-reg-form-item" >
+                                    <div style="width:14%;text-align: right" >
+                                        <span style="color: Red">*</span>
+                                        项目名称:
+                                    </div>
+                                    <div class="pg-cont-reg-form-item-input" >
+                                        <input id="project-name" class="memIn Validform_error" type="text" name="project-name" required>
+                                    </div>
+                                    <div style="width:16%; ">
+                                        <div class="Validform_checktip Validform_wrong">请勿填写公司名</div>
+                                    </div>
+                                </div>
+                                <div class="pg-cont-reg-form-item" >
+                                    <div style="width:14%;text-align: right" >
+                                        <span style="color: Red">*</span>
+                                        *移动电话:
+                                    </div>
+                                    <div class="pg-cont-reg-form-item-input" >
+                                        <input id="contact-phone" class="memIn Validform_error" type="tel" name="contact-phone" required>
+                                    </div>
+                                    <div style="width:16%; ">
+                                        <div class="Validform_checktip Validform_wrong"></div>
+                                    </div>
+                                </div>
+                                <div class="pg-cont-reg-form-item" >
+                                    <div style="width:14%;text-align: right" >
+                                        <span style="color: Red">*</span>
+                                        电子邮箱:
+                                    </div>
+                                    <div class="pg-cont-reg-form-item-input" >
+                                        <input id="email" class="memIn Validform_error" type="email" name="email" required>
+                                    </div>
+                                    <div style="width:16%; ">
+                                        <div class="Validform_checktip Validform_wrong"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div style="width:16%; ">
+                                        <div class="Validform_checktip Validform_wrong"></div>
+                                    </div>
+                                </div>
+                                <div class="pg-cont-reg-form-item">
+                                    <div style="width:14%;text-align: right" >
+                                        <span style="color: Red">*</span>
+                                        创业计划书:
+                                    </div>
+                                    <div class="pg-cont-reg-form-item-input" >
+                                        <input type="file" name="file" id="business-plan" required onchange="uploadPlanBook()"/>
+                                        <input type="text" name="business-plan-url" id="business-plan-url" hidden>
+                                        <input type="text" name="business-plan-uri" id="business-plan-uri" hidden>
+                                        <input type="text" name="business-plan-name" id="business-plan-name" hidden>
+                                        <input type="text" name="business-plan-size" id="business-plan-size" hidden>
+                                        <input type="text" name="business-plan-type" id="business-plan-type" hidden>
+                                    </div>
+                                    <div id="business-plan-url-not">
+                                        <a href="" id="bus-submitted" style="display: none">我的创业计划书</a>
+                                    </div>
+                                    <div class="pg-cont-reg-form-item-input link" >
+                                        <a target="_blank" id="modelxz2" href="files/example.docx" style="color: #08c;">
+                                            温馨提示</a>
+                                    </div>
+                                </div>
+                                <div class="pg-cont-reg-form-item">
+                                    <div style="width:14%;text-align: right" >
+                                        <span style="color: Red">*</span>
+                                        营业执照:
+                                    </div>
+                                    <div class="pg-cont-reg-form-item-input" >
+                                        <input type="file" name="file" id="business-cert" required onchange="uploadBusinessCert()"/>
+                                        <input type="text" name="business-cert-url" id="business-cert-url" hidden>
+                                        <input type="text" name="business-cert-uri" id="business-cert-uri" hidden>
+                                        <input type="text" name="business-cert-name" id="business-cert-name" hidden>
+                                        <input type="text" name="business-cert-size" id="business-cert-size" hidden>
+                                        <input type="text" name="business-cert-type" id="business-cert-type" hidden>
+                                    </div>
+                                    <div id="business-cert-url-not">
+                                        <a href="" id="plan-submitted" style="display: none">我的营业执照</a>
+                                    </div>
+
+                                    <div class="pg-cont-reg-form-item-input link" >
+                                        <a target="_blank" id="modelxz2-2" href="files/example.docx" style="color: #08c;">
+                                            温馨提示</a>
+                                    </div>
+                                </div>
+                                <div class="pg-cont-reg-form-item" >
+
+                                    <div class="pg-cont-reg-form-item-input-submt mApply" >
+                                        <input type="submit" value="提交" class="pg-cont-reg-form-item-input-send">
+                                        <input type="reset" value="重贴" class="pg-cont-reg-form-item-input-reset">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notification-message" id="notification-message">
+                        <div class="notification">
+                            <div class="notification-content">
+                                <div class="notification-title">
+                                    <h1>提交成功!</h1>
+                                </div>
+                                <div class="notification-content">
+                                    <h4>本期项目提交成功</h4>
+                                    <h4>请保持手机畅通，以便及时接收评审通知</h4>
+                                </div>
+                            </div>
+                            <div class="notification-picture">
+<<<<<<< HEAD
+                                <img src="images/official-account.jpg">
+=======
+                                <img src="images/official_account.jpg">
+>>>>>>> origin/master
+                            </div>
+                            <div class="notification-header">
+                                <div class="close-button"><a href="account.html">返回首页</a> </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+        <div class="page-bottom-cont mAccount">
+            <div class="pg-btm-up">
+                <div class="pg-btm-up-bdy">
+                    <div class="pg-btm-up-bdy-left">
+                        <h5>联系我们</h5>
+                        <div>
+                            <span class="fa fa-phone">: </span>0258695895454
+                        </div>
+                        <div>
+                            <span class="fa fa-home">: </span>成都高新区天府大道天府软件园D区
+                        </div>
+                    </div>
+                    <div class="pg-btm-up-bdy-right">
+                        <h3>
+                            <span class="fa fa-weibo"></span>&nbsp;&nbsp;
+                            <span style="background: url("../icons/top.png")"></span>&nbsp;&nbsp;
+                        </h3>
+                        <div>
+                            <span >友情链接: </span> <a href="#">成都高投</a>&nbsp;/&nbsp;<a href="#">成都高投</a>&nbsp;/&nbsp;<a href="#">成都高投</a>&nbsp;/&nbsp;<a href="#">成都高投</a>&nbsp;/&nbsp;<a href="#">成都高投</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="pg-btn-dwn">
+                <div class="pg-btn-dwn-bdy">
+                    <span>Copyright © 2010 天府软件园创业场. All Rights Reserved. 蜀ICP备11001370号-4 站长统计 京公网安备11000002000001号</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<script src="js/plugins/jquery-1.11.3.min.js"></script>
+<script src="js/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/plugins/jquery.cookie.js"></script>
+<script src="js/index.js"></script>
+<script src="js/my-account-operations.js"></script>
+<script src="js/apply-function.js"></script>
+<script src="js/plugins/layer/layer.min.js"></script>
+</body>
+</html>
