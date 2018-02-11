@@ -3,8 +3,8 @@
  */
 $(document).ready(function(){
 
-    loadApplicationsInProcess(null);
-
+    loadApplicationsInProcess();
+    loadCommunityId();
     //load categories
     //alert("hello")
     //get categories from server-- ajax request
@@ -37,6 +37,34 @@ function loadCategories(){
             populateCategories(categories);
         }else{
             populateCategories(categories)
+        }
+    });
+}
+function loadCommunityId(){
+    var token = $.cookie("token");
+    var form = new FormData();
+    form.append("token", token);
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://wechattest.zuolin.com/evh/ui/user/listUserRelatedScenes",
+        "method": "POST",
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form
+    }
+
+    $.ajax(settings).done(function (response) {
+        var obj=JSON.parse(response);
+        var status=obj.errorCode;
+        if(status==200){
+           $("#community-id").val(obj.response[0].communityId);
+            console.log("object-name"+obj.response[0].name)
+            console.log("scene token"+obj.response[0].sceneToken)
+        }else{
+            console.log("out put status"+status)
         }
     });
 }
@@ -88,7 +116,6 @@ function checkIfUserIsAuthenticatedAndSubmit(){
         var userData={
             "token":token,
             "namespaceId":'999964',
-            "communityId":'240111044332060166',
             "applyUserId":uid,
             "serverUrl":serverUrl
         }
@@ -103,6 +130,7 @@ function handleApplicationProcess(userData){
     var teamRepresentative=$("#team-representative").val();
     var applyType=1;
     var projectTypeList=$("#categories-list").val();
+    var communtiyId=$("#community-id").val();
     var h;
     var projectType="";
     for(h=0;h<projectTypeList.length;h++){
@@ -144,7 +172,7 @@ function handleApplicationProcess(userData){
     }
     form.append("token", userData.token);
     form.append("namespaceId", userData.namespaceId);
-    form.append("communityId", userData.communityId);
+    form.append("communityId", communtiyId);
     form.append("applyUserId", userData.applyUserId);
     form.append("teamName", teamName);
     form.append("projectType", projectType);
@@ -196,13 +224,14 @@ function uploadBusinessCert(){
     var token= $.cookie("token");
     var contentServer= $.cookie("contentServer")+"/";
     var serverUrl= "http://"+contentServer+"upload/file";
+    var communityId=$("#community-id").val()
     if(token==='null'){
         layer.msg("先要登录才能上传文件");
     }else{
         var userData={
             "token":token,
             "namespaceId":'99994',
-            "communityId":'240111044332060166',
+            "communityId":communityId,
             "applyUserId":uid,
             "serverUrl":serverUrl
         }
@@ -216,13 +245,14 @@ function uploadPlanBook(){
     var token= $.cookie("token");
     var contentServer= $.cookie("contentServer")+"/";
     var serverUrl= "http://"+contentServer+"upload/file";
+    var communityId=$("#community-id").val()
     if(token==='null'){
         layer.msg("先要登录才能上传文件");
     }else{
         var userData={
             "token":token,
             "namespaceId":'99994',
-            "communityId":'240111044332060166',
+            "communityId":communityId,
             "applyUserId":uid,
             "serverUrl":serverUrl
         }
@@ -295,8 +325,11 @@ function loadApplicationsInProcess(){
         var form = new FormData();
         var applicationId=getCookie("parentId");
 
-        if(applicationId!=null){
+        if(applicationId==='null'){
             //alert(applicationId)
+            url= "http://wechattest.zuolin.com/evh/incubator/findIncubatorAppling";
+
+        }else{
             url="http://wechattest.zuolin.com/evh/incubator/findIncubatorApply";
             form.append("id",applicationId);
         }
@@ -341,6 +374,7 @@ function loadApplicationsInProcess(){
     }
 }
 function populateApplicationInfo(application){
+    $("#community-id").val(application.communityId);
     $("#parent-id").val(application.id);
     $("#team-name").val(application.teamName);
     $("#team-representative").val(application.chargerName);
