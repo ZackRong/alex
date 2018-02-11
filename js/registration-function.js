@@ -36,7 +36,7 @@ $(".pg-cont-reg-form-item-input-submt.regst").click(function () {
                             var settings = {
                                 "async": true,
                                 "crossDomain": true,
-                                "url": "http://wechattest.zuolin.com/evh/user/verifyAndLogon",
+                                "url": "/evh/user/verifyAndLogon",
                                 "method": "POST",
                                 "processData": false,
                                 "contentType": false,
@@ -108,7 +108,7 @@ function getVerificationCode(){
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://wechattest.zuolin.com/evh/user/signupForCodeRequest",
+            "url": "/evh/user/signupForCodeRequest",
             "method": "POST",
             "processData": false,
             "contentType": false,

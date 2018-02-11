@@ -20,7 +20,7 @@ function loadCategories(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://wechattest.zuolin.com/evh/incubator/listIncubatorProjectType",
+        "url": "/evh/incubator/listIncubatorProjectType",
         "method": "POST",
         "processData": false,
         "contentType": false,
@@ -48,7 +48,7 @@ function loadCommunityId(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://wechattest.zuolin.com/evh/ui/user/listUserRelatedScenes",
+        "url": "/evh/ui/user/listUserRelatedScenes",
         "method": "POST",
         "processData": false,
         "contentType": false,
@@ -195,7 +195,7 @@ function handleApplicationProcess(userData){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://wechattest.zuolin.com/evh/incubator/addIncubatorApply",
+        "url": "/evh/incubator/addIncubatorApply",
         "method": "POST",
         "processData": false,
         "contentType": false,
@@ -309,7 +309,7 @@ function uploadFile(file,userData,type){
     });
 }
 function loadApplicationsInProcess(){
-    var url= "http://wechattest.zuolin.com/evh/incubator/findIncubatorAppling";
+    var url= "/evh/incubator/findIncubatorAppling";
 
     var uid=getCookie("uid");
     var token= getCookie("token");
@@ -327,10 +327,10 @@ function loadApplicationsInProcess(){
 
         if(applicationId==='null'){
             //alert(applicationId)
-            url= "http://wechattest.zuolin.com/evh/incubator/findIncubatorAppling";
+            url= "/evh/incubator/findIncubatorAppling";
 
         }else{
-            url="http://wechattest.zuolin.com/evh/incubator/findIncubatorApply";
+            url="/evh/incubator/findIncubatorApply";
             form.append("id",applicationId);
         }
         form.append("namespaceId", "999964");

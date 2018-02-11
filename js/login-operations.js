@@ -28,7 +28,7 @@ function login(phone,password){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://wechattest.zuolin.com/evh/user/logon",
+        "url": "/evh/user/logon",
         "method": "POST",
         "data": {
             "namespaceId": "999964",

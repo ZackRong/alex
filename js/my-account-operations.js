@@ -19,7 +19,7 @@ function loadApplicationHistory(){
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://wechattest.zuolin.com/evh/incubator/listIncubatorApply",
+            "url": "/evh/incubator/listIncubatorApply",
             "method": "POST",
             "processData": false,
             /*xhrFields: {
