@@ -172,7 +172,7 @@ function handleApplicationProcess(userData){
     }
     form.append("token", userData.token);
     form.append("namespaceId", userData.namespaceId);
-    form.append("communityId", communtiyId);
+    form.append("communityId", ''+communtiyId);
     form.append("applyUserId", userData.applyUserId);
     form.append("teamName", teamName);
     form.append("projectType", projectType);
@@ -231,7 +231,7 @@ function uploadBusinessCert(){
         var userData={
             "token":token,
             "namespaceId":'99994',
-            "communityId":communityId,
+            "communityId": ''+communityId,
             "applyUserId":uid,
             "serverUrl":serverUrl
         }
@@ -252,7 +252,7 @@ function uploadPlanBook(){
         var userData={
             "token":token,
             "namespaceId":'99994',
-            "communityId":communityId,
+            "communityId": ''+communityId,
             "applyUserId":uid,
             "serverUrl":serverUrl
         }
