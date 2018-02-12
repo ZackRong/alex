@@ -57,10 +57,13 @@ function loadCommunityId(){
     }
 
     $.ajax(settings).done(function (response) {
+        response = response.replace(/([^\\])":(\d{15,})/g,'$1":"$2"');
+        response = response.replace(/([\[,]])(\d{15,})/g,'$1"$2"');
         var obj=JSON.parse(response);
         var status=obj.errorCode;
         if(status==200){
-           $("#community-id").val(obj.response[0].communityId);
+            //console.log(obj);
+            $("#community-id").val(obj.response[0].communityId);
             console.log("object-name"+obj.response[0].name)
             console.log("scene token"+obj.response[0].sceneToken)
         }else{
