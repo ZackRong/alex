@@ -165,7 +165,7 @@ function resubmitProject(applicationId){
         shade: [0],
         area: ['auto','auto'],
         dialog: {
-            msg: '你确定要重新提交吗？',
+            msg: '提醒：您重新提交的资料会覆盖前一份，评审时以最新提交的资料为准',
             btns: 2,
             type: 4,
             btn: ['确定','取消'],

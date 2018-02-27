@@ -97,7 +97,8 @@ function getVerificationCode(){
         $(".Validform_wrong.phone").text("");
         //$("#verification").setAttribute('disabled',true);
         document.getElementById("verification").setAttribute("disabled","true");
-        myCountdown(60);
+        $("#countdown").text("") ;
+        myCountdown(10);
         var form = new FormData();
         form.append("namespaceId", "999964");
         form.append("type", "mobile");
@@ -144,7 +145,7 @@ function myCountdown(duration) {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        $("#countdown").text( minutes + ":" + seconds) ;
+        $("#countdown").text(seconds) ;
 
         if (--timer < 0) {
             timer = 0;
