@@ -98,7 +98,7 @@ function getVerificationCode(){
         //$("#verification").setAttribute('disabled',true);
         document.getElementById("verification").setAttribute("disabled","true");
         $("#countdown").text("") ;
-        myCountdown(10);
+        myCountdown(59);
         var form = new FormData();
         form.append("namespaceId", "999964");
         form.append("type", "mobile");
