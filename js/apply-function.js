@@ -140,7 +140,7 @@ function handleApplicationProcess(userData){
         if(h==0){
             projectType+=projectTypeList[h]
         }else{
-            projectType+=","+projectTypeList[h]
+            projectType+=""+projectTypeList[h]
         }
 
     }
