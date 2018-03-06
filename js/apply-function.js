@@ -186,12 +186,12 @@ function handleApplicationProcess(userData){
     form.append("applyType", applyType);
     form.append("businessLicenceAttachments[0].contentUri", businessLicenceAttachmentsUri);
     form.append("businessLicenceAttachments[0].contentUrl", businessLicenceAttachmentsUrl);
-    form.append("businessLicenceAttachments[0].contentType", businessLicenceAttachmentsType);
+    form.append("businessLicenceAttachments[0].contentType", 'file');
     form.append("businessLicenceAttachments[0].name", businessLicenceAttachmentsName);
     form.append("businessLicenceAttachments[0].fileSize", businessLicenceAttachmentsSize);
     form.append("planBookAttachments[1].contentUri", planBookAttachmentsUri);
     form.append("planBookAttachments[1].contentUrl", planBookAttachmentsUrl);
-    form.append("planBookAttachments[1].contentType", planBookAttachmentsType);
+    form.append("planBookAttachments[1].contentType", 'file');
     form.append("planBookAttachments[1].name", planBookAttachmentsName);
     form.append("planBookAttachments[1].fileSize", planBookAttachmentsSize);
 

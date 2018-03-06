@@ -274,7 +274,7 @@ function processApplicationResubmission(application){
     form.append("businessLicenceAttachments[0].fileSize", businessLicenceAttachmentsSize);
     form.append("planBookAttachments[1].contentUri", planBookAttachmentsUri);
     form.append("planBookAttachments[1].contentUrl", planBookAttachmentsUrl);
-    form.append("planBookAttachments[1].contentType", planBookAttachmentsType);
+    form.append("planBookAttachments[1].contentType", 'file');
     form.append("planBookAttachments[1].name", planBookAttachmentsName);
     form.append("planBookAttachments[1].fileSize", planBookAttachmentsSize);
 
