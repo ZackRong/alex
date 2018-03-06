@@ -1,3 +1,4 @@
+var requestUrl="http://wechattest.zuolin.com";
 $(document).ready(function () {
 
     $(".pg-cont-myAcc-lt-vert-nav-item").click(function () {

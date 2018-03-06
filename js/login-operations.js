@@ -28,7 +28,7 @@ function login(phone,password){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "/evh/user/logon",
+        "url": requestUrl+"/evh/user/logon",
         "method": "POST",
         "data": {
             "namespaceId": "999964",

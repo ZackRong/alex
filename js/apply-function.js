@@ -20,7 +20,7 @@ function loadCategories(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "/evh/incubator/listIncubatorProjectType",
+        "url":requestUrl+"/evh/incubator/listIncubatorProjectType",
         "method": "POST",
         "processData": false,
         "contentType": false,
@@ -48,7 +48,7 @@ function loadCommunityId(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "/evh/ui/user/listUserRelatedScenes",
+        "url": requestUrl+"/evh/ui/user/listUserRelatedScenes",
         "method": "POST",
         "processData": false,
         "contentType": false,
@@ -198,7 +198,7 @@ function handleApplicationProcess(userData){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "/evh/incubator/addIncubatorApply",
+        "url": requestUrl+"/evh/incubator/addIncubatorApply",
         "method": "POST",
         "processData": false,
         "contentType": false,
@@ -261,7 +261,14 @@ function uploadPlanBook(){
         }
         //upload file
         var planBook = $('#business-plan')[0].files[0];
-        uploadFile(planBook,userData,1);
+        var maxSize= 100*1024*1024;
+
+        if(planBook.size<=maxSize){
+            uploadFile(planBook,userData,1);
+        }else{
+            layer.msg("文件大小不可以超过100M");
+        }
+
     }//send request
 }
 function uploadFile(file,userData,type){
@@ -312,8 +319,8 @@ function uploadFile(file,userData,type){
     });
 }
 function loadApplicationsInProcess(){
-    var url= "/evh/incubator/findIncubatorAppling";
-
+    //var url= requestUrl+"/evh/incubator/findIncubatorAppling";
+    var url=requestUrl+"/evh/incubator/findIncubatorApply";
     var uid=getCookie("uid");
     var token= getCookie("token");
 
@@ -328,14 +335,14 @@ function loadApplicationsInProcess(){
         var form = new FormData();
         var applicationId=getCookie("parentId");
 
-        if(applicationId==='null'){
+        /*if(applicationId==='null'){
             //alert(applicationId)
             url= "/evh/incubator/findIncubatorAppling";
 
-        }else{
-            url="/evh/incubator/findIncubatorApply";
-            form.append("id",applicationId);
-        }
+        }else{*/
+
+        form.append("id",applicationId);
+
         form.append("namespaceId", "999964");
         form.append("applyUserId", uid);
         form.append("token",token);
@@ -358,18 +365,18 @@ function loadApplicationsInProcess(){
 
             if(obj.errorCode==200){
                 if(applicationList!=null){
-                    $("#application-in-process").css({display:'block'});
+                   // $("#application-in-process").css({display:'block'});
                     $("#application-form").css({display:'block'});
                     populateApplicationInfo(applicationList);
                     loadCategories();
                 }else{
-                    $("#application-in-process").css({display:'none'});
+                   // $("#application-in-process").css({display:'none'});
                     $("#application-form").css({display:'block'});
                     loadCategories();
                 }
             }else{
                 //alert("I am here")
-                $("#application-in-process").css({display:'none'});
+                //$("#application-in-process").css({display:'none'});
                 $("#application-form").css({display:'block'});
                 loadCategories();
             }

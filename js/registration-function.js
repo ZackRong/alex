@@ -36,7 +36,7 @@ $(".pg-cont-reg-form-item-input-submt.regst").click(function () {
                             var settings = {
                                 "async": true,
                                 "crossDomain": true,
-                                "url": "/evh/user/verifyAndLogon",
+                                "url": requestUrl+"/evh/user/verifyAndLogon",
                                 "method": "POST",
                                 "processData": false,
                                 "contentType": false,
@@ -109,7 +109,7 @@ function getVerificationCode(){
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "/evh/user/signupForCodeRequest",
+            "url": requestUrl+"/evh/user/signupForCodeRequest",
             "method": "POST",
             "processData": false,
             "contentType": false,

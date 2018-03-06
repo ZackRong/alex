@@ -19,7 +19,7 @@ function loadApplicationHistory(){
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "/evh/incubator/listIncubatorApply",
+            "url": requestUrl+"/evh/incubator/listIncubatorApply",
             "method": "POST",
             "processData": false,
             /*xhrFields: {
@@ -84,6 +84,7 @@ function populateApplicationHistory(applicationList){
             var application=applicationList[i];
             var busAttachments=application.businessLicenceAttachments;
             var planBookAttachments=application.planBookAttachments;
+            var canResubmit=application.reApplyFlag;
             var bisAttName="";
             var planBookName="";
             var resubitButton="";
@@ -120,26 +121,36 @@ function populateApplicationHistory(applicationList){
             if(approveStatus==0){
                 status="<span style='color:darkgreen' class='approveOpinion'>待审核</span>" +
                     "<div style='display: none' class='opinion'>"+approveOpinion+"</div> ";
-                hasInProcess=1;
+                /*hasInProcess=1;
                 resubitButton="<div style=\"color: red;font-weight: 600; cursor: pointer\" onclick=\"resubmitProject("+application.id+")\">重新提交</div>";
+            */
+                if(canResubmit==1){
+                    resubitButton="<div style=\"color: red;font-weight: 600; cursor: pointer\" onclick=\"resubmitProject("+application.id+")\">重新提交</div>";
+                }else{
+                    resubitButton="<div style=\"color: #e7e7e7;font-weight: 600; cursor: pointer\">重新提交</div>";
+                }
             }
             if(approveStatus==1){
                 status="<div style=\"color:darkgreen;\" class=\"approveOpinion\">已拒绝</br><span style=\"color: gray;font-weight: 400; cursor: pointer;font-size: 11px\" onclick=\"displayApproveResponse("+"'"+approveOpinion.trim()+"'"+")\">&nbsp;&nbsp;查看拒绝理由</span></div>"
-                if(hasInProcess==1){
-                    notificationMsg="现在只能重新提交在审核中的记录";
-                    resubitButton="<div style=\"color: red;font-weight: 600; cursor: pointer\" onclick=\"displayApproveResponse("+"'"+notificationMsg+"'"+")\">重新提交</div>";
-                }else{
+                if(canResubmit==1){
                     resubitButton="<div style=\"color: red;font-weight: 600; cursor: pointer\" onclick=\"resubmitProject("+application.id+")\">重新提交</div>";
+                }else{
+                    resubitButton="<div style=\"color: #e7e7e7;font-weight: 600; cursor: pointer\">重新提交</div>";
                 }
             }
             if(approveStatus==2){
                 status="<div style='color:darkgreen;' class='approveOpinion'>已通过</div>"
-                if(hasInProcess==1){
+                if(canResubmit==1){
+                    resubitButton="<div style=\"color: red;font-weight: 600; cursor: pointer\" onclick=\"resubmitProject("+application.id+")\">重新提交</div>";
+                }else{
+                    resubitButton="<div style=\"color: #e7e7e7;font-weight: 600; cursor: pointer\">重新提交</div>";
+                }
+                /*if(hasInProcess==1){
                     notificationMsg="现在只能重新提交在审核中的记录";
                     resubitButton="<div style=\"color: red;font-weight: 600; cursor: pointer\" onclick=\"displayApproveResponse("+"'"+notificationMsg+"'"+")\">重新提交</div>";
                 }else{
                     resubitButton="<div style=\"color: red;font-weight: 600; cursor: pointer\" onclick=\"resubmitProject("+application.id+")\">重新提交</div>";
-                }
+                }*/
             }
             var tableRow = "<tr>" +
                 "<td>" +number +
