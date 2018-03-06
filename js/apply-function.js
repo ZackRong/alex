@@ -240,7 +240,15 @@ function uploadBusinessCert(){
         }
         //upload file
         var businessCert = $('#business-cert')[0].files[0];
-        uploadFile(businessCert,userData,2);
+        var maxSize= 100*1024*1024;
+
+        if(businessCert.size<=maxSize){
+            $("#business-cert-url-not").text("上传中。。。");
+            uploadFile(businessCert,userData,2);
+        }else{
+            layer.msg("文件大小不可以超过100M");
+        }
+
     }//send request
 }
 function uploadPlanBook(){
@@ -264,6 +272,7 @@ function uploadPlanBook(){
         var maxSize= 100*1024*1024;
 
         if(planBook.size<=maxSize){
+            $("#business-plan-url-not").text("上传中。。。");
             uploadFile(planBook,userData,1);
         }else{
             layer.msg("文件大小不可以超过100M");
@@ -391,6 +400,11 @@ function populateApplicationInfo(application){
     $("#project-name").val(application.projectName);
     $("#contact-phone").val(application.chargerPhone);
     $("#email").val(application.chargerEmail);
+    var selectCategories= document.getElementById("categories-list");
+    var option = document.createElement('option');
+    option.value = application.projectType;
+    option.text = application.projectType;
+    selectCategories.add(option);
     var busAttachments=application.businessLicenceAttachments;
     var planBookAttachments=application.planBookAttachments;
     if(busAttachments!=null){
