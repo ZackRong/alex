@@ -2,24 +2,26 @@
  * Created by Nostalgie on 24-Jan-18.
  */
 $(".pg-cont-reg-form-item-input-submt.login").click(function () {
-    var phone = $(".pg-cont-reg-form-item-input.phone").children('input').val()
+    var phone = $(".pg-cont-reg-form-item-input.phone").children('input').val().trim();
     var pwd = $(".pg-cont-reg-form-item-input.pwd").children('input').val()
     if (pwd.toString().length > 0) {
         $(".Validform_wrong.pwd").text("")
-        if (!isNaN(phone) && phone.toString().length == 11) {
+        var myPhone=phone.trim();
+        if (myPhone.toString().length == 11) {
             $(".Validform_wrong.phone").text("")
             $.cookie("uid",null);
             $.cookie("token",null);
             //send login request
             var pass = SHA256(pwd);
-            login(phone, pass)
+            login(myPhone, pass)
         } else {
-            $(".Validform_wrong.phone").css({color: 'red'})
-            $(".Validform_wrong.phone").text("*请输入您手机号码！")
+            alert(myPhone.toString().length );
+            $(".Validform_wrong.phone").css({color: 'red'});
+            $(".Validform_wrong.phone").text("*请检查您的手机号码！");
         }
     } else {
-        $(".Validform_wrong.pwd").css({color: 'red'})
-        $(".Validform_wrong.pwd").text("*请输入密码！")
+        $(".Validform_wrong.pwd").css({color: 'red'});
+        $(".Validform_wrong.pwd").text("*请输入密码！");
     }
 });
 
