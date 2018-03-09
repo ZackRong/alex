@@ -1,3 +1,4 @@
+//var requestUrl="http://wechattest.zuolin.com";
 var requestUrl="";
 $(document).ready(function () {
 

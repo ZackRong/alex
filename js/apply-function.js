@@ -243,7 +243,7 @@ function uploadBusinessCert(){
         var maxSize= 100*1024*1024;
 
         if(businessCert.size<=maxSize){
-            $("#business-cert-url-not").text("上传中。。。");
+            $("#business-cert-url-not").text("上传中...");
             uploadFile(businessCert,userData,2);
         }else{
             layer.msg("文件大小不可以超过100M");
@@ -272,7 +272,7 @@ function uploadPlanBook(){
         var maxSize= 100*1024*1024;
 
         if(planBook.size<=maxSize){
-            $("#business-plan-url-not").text("上传中。。。");
+            $("#business-plan-url-not").text("上传中...");
             uploadFile(planBook,userData,1);
         }else{
             layer.msg("文件大小不可以超过100M");
