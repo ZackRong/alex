@@ -105,7 +105,33 @@ function changeMeTwo(){
 //make application
 $("#apply-form").submit(function(e){
     e.preventDefault();
-    checkIfUserIsAuthenticatedAndSubmit()
+
+    var appType= $('.apply-type:checked').val();
+    var message="";
+    if(appType==0){
+        message="产品处于概念期或Demo期，团队人数在10人以下，办公面积需求在80平米以下。";
+    }else{
+        alert(appType);
+        message="已注册公司，产品已上市，团队人数在10人以上，办公面积需求在100~500平米以上";
+    }
+
+    $.layer({
+        shade: [2],
+        area: ['auto','auto'],
+        dialog: {
+            msg: message,
+            btns: 2,
+            type: 4,
+            btn: ['确定','取消'],
+            yes: function(){
+                layer.msg('提交中...', 1, 10);
+                checkIfUserIsAuthenticatedAndSubmit();
+            }, no: function(){
+                layer.msg('取消成功', 1, 12);
+            }
+        }
+    });
+
 })
 
 function checkIfUserIsAuthenticatedAndSubmit(){

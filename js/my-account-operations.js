@@ -74,6 +74,7 @@ function populateApplicationHistory(applicationList){
                         "<th>项目名称</th>"+
                         "<th>所属分类</th>"+
                         "<th>附件</th>"+
+                        "<th>提交时间</th>"+
                         "<th>审核状态</th>"+
                         "<th>操作</th>"+
                         "</tr>";
@@ -152,11 +153,15 @@ function populateApplicationHistory(applicationList){
                     resubitButton="<div style=\"color: red;font-weight: 600; cursor: pointer\" onclick=\"resubmitProject("+application.id+")\">重新提交</div>";
                 }*/
             }
+            var timestamp = application.createTime ; // replace your timestamp
+            var createTime = new Date(timestamp * 1000);
+            //var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
             var tableRow = "<tr>" +
                 "<td>" +number +
                 "<td>" + application.projectName +
                 "</td><td>" + application.projectType +
                 "</td><td style=\"text-align: center\">" + bisAttName +"</br>"+planBookName +
+                "</td><td style=\"text-align: center\">" + createTime.toDateString()+
                 "</td><td style=\"text-align: center\">" + status +
                 "<td style=\"text-align: center\">"+resubitButton+"</td>";
             //alert(tableRow)
