@@ -154,7 +154,7 @@ function populateApplicationHistory(applicationList){
                 }*/
             }
             var timestamp = application.createTime ; // replace your timestamp
-            var createTime = new Date(timestamp * 1000);
+            var createTime = new Date(timestamp);
             //var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
             var tableRow = "<tr>" +
                 "<td>" +number +
