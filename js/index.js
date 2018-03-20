@@ -1,4 +1,4 @@
-var requestUrl="http://park-test.chuangyechang.com";
+var requestUrl="http://opv2-test.zuolin.com";
 //var requestUrl="";
 $(document).ready(function () {
 

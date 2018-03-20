@@ -77,7 +77,8 @@ function getCaptcha(){
         "async": true,
         "crossDomain": true,
         "url": requestUrl+"/evh/PictureValidate/newPicture",
-        "method": "GET"
+        "method": "GET",
+
     }
 
     $.ajax(settings).done(function (response) {
@@ -86,7 +87,7 @@ function getCaptcha(){
         var error=obj.errorCode;
         if(error==200){
             //console.log(obj.response);
-            $("#verification-image").attr('src', requestUrl+"/evh/"+"image/png;base64,"+obj.response);
+            $("#verification-image").attr('src', "data:image/png;base64,"+obj.response);
         }else{
             layer.msg("刷新失败");
         }
@@ -101,9 +102,7 @@ function getVerificationCode(){
         if(!isNaN(phone)&&phone.toString().length==11){
             $(".Validform_wrong.phone").text("");
             //$("#verification").setAttribute('disabled',true);
-            document.getElementById("verification").setAttribute("disabled","true");
-            $("#countdown").text("") ;
-            myCountdown(59);
+
             var form = new FormData();
             form.append("namespaceId", "999964");
             form.append("identifier", phone);
@@ -123,7 +122,9 @@ function getVerificationCode(){
                 var obj=JSON.parse(response);
                 var error=obj.errorCode
                 if(error==200){
-
+                    document.getElementById("verification").setAttribute("disabled","true");
+                    $("#countdown").text("") ;
+                    myCountdown(59);
                 }else if(error==300002){
                     $(".Validform_wrong.phone").css({color:'red'});
                     $(".Validform_wrong.phone").text("验证码已发送")

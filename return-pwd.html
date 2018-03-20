@@ -65,12 +65,10 @@
                     <div class="pg-cont-reg-form-item-input img_verification" style="width:30%;text-align: right" >
                         <input  class="memIn Validform_error" name="img_verification" type="text" >
                     </div>
-                    <div class="img_ver" style="width: 100px; height: 50px">
-                        <img id="verification-image">
+                    <div class="img_ver" style="width: 100px; height: 40px" onclick="getCaptcha()">
+                        <img id="verification-image" height="40px" width="100px">
                     </div>
-                    <div style="width:8%; ">
-                        <button type="button" id="img_verification" onclick="getCaptcha()">换图</button>
-                    </div>
+
                     <div style="width:16%; ">
                         <div class="Validform_checktip Validform_wrong captcha"></div>
                     </div>
@@ -85,13 +83,12 @@
                         <input  class="memIn Validform_error" name="verification" type="text" >
                     </div>
                     <input  class="memIn " name="register-token" id="register-token" type="text" hidden>
-                    <div style="width:10%; ">
-                        <div id="countdown"></div>
-                    </div>
                     <div style="width:16%; ">
                         <button type="button" id="verification" onclick="getVerificationCode()">取验证码</button>
                     </div>
-
+                    <div style="width:10%; ">
+                        <div id="countdown"></div>
+                    </div>
                 </div>
                 <div class="pg-cont-reg-form-item " >
                     <div style="width:14%;text-align: right" >
