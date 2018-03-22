@@ -1,5 +1,6 @@
-var requestUrl="http://opv2-test.zuolin.com";
-//var requestUrl="";
+//var requestUrl="http://park-test.chuangyechang.com";
+var phoneRegionCode="86";
+var requestUrl="";
 $(document).ready(function () {
 
     $(".pg-cont-myAcc-lt-vert-nav-item").click(function () {

@@ -77,7 +77,7 @@ function getCaptcha(){
         "async": true,
         "crossDomain": true,
         "url": requestUrl+"/evh/PictureValidate/newPicture",
-        "method": "GET",
+        "method": "GET"
 
     }
 
@@ -97,22 +97,22 @@ function getCaptcha(){
 
 function getVerificationCode(){
     var phone = $(".pg-cont-reg-form-item-input.phone").children('input').val();
-    var captcha=$(".pg-cont-reg-form-item-input.img_verification").children('input').val();
+    var captcha=$(".pg-cont-reg-form-item-input.img_verification").children('input').val().trim();
     if(captcha.toString().length>0){
         if(!isNaN(phone)&&phone.toString().length==11){
             $(".Validform_wrong.phone").text("");
             //$("#verification").setAttribute('disabled',true);
-
+            //alert(captcha);
             var form = new FormData();
             form.append("namespaceId", "999964");
             form.append("identifier", phone);
             form.append("pictureCode", captcha);
-            form.append("regionCode", "regionCode");
+            form.append("regionCode", phoneRegionCode);
             var settings = {
                 "async": true,
                 "crossDomain": true,
                 "url": requestUrl+"/evh/user/sendCodeWithPictureValidate",
-                "method": "GET",
+                "method": "POST",
                 "processData": false,
                 "contentType": false,
                 "mimeType": "multipart/form-data",
