@@ -109,10 +109,10 @@ $("#apply-form").submit(function(e){
     var appType= $('.apply-type:checked').val();
     var message="";
     if(appType==0){
-        message="产品处于概念期或Demo期，团队人数在10人以下，办公面积需求在80平米以下。";
+        message="你所提交的是孵化器，是否继续？";
     }else{
-        alert(appType);
-        message="已注册公司，产品已上市，团队人数在10人以上，办公面积需求在100~500平米以上";
+
+        message="你所提交的是加速器，是否继续？";
     }
 
     $.layer({

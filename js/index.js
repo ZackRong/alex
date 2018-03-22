@@ -1,6 +1,6 @@
-//var requestUrl="http://park-test.chuangyechang.com";
+var requestUrl="http://park-test.chuangyechang.com";
 var phoneRegionCode="86";
-var requestUrl="";
+//var requestUrl="";
 $(document).ready(function () {
 
     $(".pg-cont-myAcc-lt-vert-nav-item").click(function () {
