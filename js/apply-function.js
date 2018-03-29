@@ -127,7 +127,7 @@ $("#apply-form").submit(function(e){
                 layer.msg('提交中...', 1, 10);
                 checkIfUserIsAuthenticatedAndSubmit();
             }, no: function(){
-                layer.msg('取消成功', 1, 12);
+                layer.msg('取消成功', 1, 10);
             }
         }
     });
