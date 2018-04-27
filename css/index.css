@@ -556,12 +556,14 @@ a {
 }
 #contentOne{
    margin-bottom:2em;
+    justify-content: center;
 }
 #contentOne>ul>li{
     list-style: square outside url("../icons/list-icon.ico");
 }
 #contentTwo{
     display: inline-block;
+    justify-content: center;
     margin-bottom:2em;
 
 }
@@ -575,6 +577,6 @@ li{
 }
 
 figure{
+    display: inline-block;
     justify-content: center;
-    text-align: center;
 }
