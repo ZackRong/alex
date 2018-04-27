@@ -84,7 +84,31 @@ body{
     float: left;
 
 }
+#QRCode{
+    float:right;
+    display:inline-block;
+}
+.pg-hd-main-qrCode-cont{
+    width:114px;
+    height:114px;
+    padding:0px;
+    margin:0px;
+    background-position: center;
+    background: url("../images/official-account.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    float: left;
 
+}
+.QrcodeText{
+    margin-left:10px;
+    margin-top: 10%;
+    width:114px;
+    height:114px;
+    float: Right;
+    color:#000000;
+    font-size: 15px;
+}
 .pg-hd-main-nav-list-cont{
     width:70%;
     float: left;
@@ -522,3 +546,35 @@ a {
     cursor:pointer;
 }
 
+
+#firstSection{
+    margin-left:2em;
+    color:#000000;
+    padding-left:3em;
+    font-family: 微软雅黑;
+
+}
+#contentOne{
+   margin-bottom:2em;
+}
+#contentOne>ul>li{
+    list-style: square outside url("../icons/list-icon.ico");
+}
+#contentTwo{
+    display: inline-block;
+    margin-bottom:2em;
+
+}
+#contentTwo>div>ul>li{
+    list-style: square outside url("../icons/list-icon.ico");
+}
+li{
+    /*color:#000000;*/
+    font-size: 15px;
+    list-style: none;
+}
+
+figure{
+    justify-content: center;
+    text-align: center;
+}
